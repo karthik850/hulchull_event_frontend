@@ -2,11 +2,18 @@ import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 function NavBar(props) {
   const [islogged, setIsLogged] = useState(false);
+  const [isAdmin,setIsAdmin] = useState(false);
   const [user, setUser] = useState();
   const [expanded, setExpanded] = useState(false); // State to manage navbar toggle
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [fromAdminPage,setAdminPage] = useState(false)
 
   useEffect(() => {
     const token = sessionStorage.getItem("authToken");
@@ -14,8 +21,17 @@ function NavBar(props) {
     if (token && user) {
       setIsLogged(true);
       setUser(user);
+      setIsAdmin(sessionStorage.getItem("isAdmin"))
     }
-  }, [props.refresh]);
+    if (fromAdminPage) {
+      // Scroll to the element with ID 'login'
+      // const loginElement = document.getElementById('login');
+      // if (loginElement) {
+      //   loginElement.scrollIntoView({ behavior: 'smooth' });
+      // }
+      // setAdminPage(false)
+    }
+  }, [props.refresh,]);
 
   const handleLogOut = async () => {
     sessionStorage.removeItem("authToken");
@@ -23,6 +39,7 @@ function NavBar(props) {
     setIsLogged(false);
     setUser("");
     props.setRefresh();
+    navigate('/');
     // Add your logout API call here
     const response = await fetch(API_ENDPOINT+'api/hulchullapp/logout/', {
       method: 'POST',
@@ -40,6 +57,13 @@ function NavBar(props) {
   };
 
   const handleScroll = (id) => {
+    
+    const isAdminPage = location.pathname === '/admin';
+    if(isAdminPage){
+      console.log("in login page")
+      // setAdminPage(true)
+      navigate('/#login');
+    }
     const target = document.getElementById(id);
     if (target) {
       window.scrollTo({
@@ -68,6 +92,7 @@ function NavBar(props) {
             {islogged ? (
               <>
                 <Nav.Link href="#profile" className="fs-5">{user}</Nav.Link>
+                {isAdmin ==="true" && <Link to="/admin" onClick={()=>setExpanded(false)} className="fs-5 nav-link">Admin panel</Link>}
                 <Nav.Link onClick={handleLogOut} href="#logout" className="fs-5">
                   Log Out
                 </Nav.Link>

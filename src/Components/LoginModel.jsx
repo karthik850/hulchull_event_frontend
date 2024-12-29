@@ -51,6 +51,7 @@ const LoginModel = (props) => {
         // Store the token in sessionStorage
         sessionStorage.setItem("authToken", data.token);
         sessionStorage.setItem("username", data.username);
+        sessionStorage.setItem("isAdmin",data.isadmin);
         setIsLogged(true);
         setUser(data.username);
         setFormSubmitting(false);

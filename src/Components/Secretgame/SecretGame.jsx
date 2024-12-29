@@ -6,12 +6,14 @@ import { useEffect, useState } from "react";
 import useFetch from "../fetch";
 import { useSelector } from "react-redux";
 import LoginModel from "../LoginModel";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SecretGame = (props) => {
   const [modalShow, setModalShow] = useState(false);
   const [token, setToken] = useState(sessionStorage.getItem("authToken"));
   const [isLogged, setIsLogged] = useState(false);
   const [open, setOpen] = useState(false);
+  // const { state } = navigate();
 
   useEffect(() => {
     const sessiontoken = sessionStorage.getItem("authToken");
@@ -21,7 +23,9 @@ const SecretGame = (props) => {
     } else {
       setToken("");
       setIsLogged(false);
+      
     }
+    
   }, [isLogged, props.refresh]);
 
   function MyVerticallyCenteredModal(props) {

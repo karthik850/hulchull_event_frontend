@@ -28,9 +28,9 @@ const Bubble = () => {
   //   error: usererror,
   //   fetchData: getUserSecret,
   // } = useFetch();
-  const [usersecretdata,setUserSecretData] = useState([])
-  const [userloading,setUserLoading] = useState(false)
-  const [usererror,setUseError] = useState()
+  const [usersecretdata, setUserSecretData] = useState([]);
+  const [userloading, setUserLoading] = useState(false);
+  const [usererror, setUseError] = useState();
   const [token, setToken] = useState(sessionStorage.getItem("authToken"));
   const [userPopup, setuserPopup] = useState(false);
   const [favNumber, setFavNumber] = useState();
@@ -52,20 +52,21 @@ const Bubble = () => {
               Authorization: "Token " + sessiontoken,
             },
           };
-          setUserLoading(true)
-          const firstresponse = await fetch(API_ENDPOINT + "api/hulchullapp/get-my-secret-code/", options);
+          setUserLoading(true);
+          const firstresponse = await fetch(
+            API_ENDPOINT + "api/hulchullapp/get-my-secret-code/",
+            options
+          );
           // Fetch the first API data
           if (!firstresponse.ok) {
-            setUseError("error")
-            setUserLoading(false)
+            setUseError("error");
+            setUserLoading(false);
             // throw new Error("Network response was not ok");
-          }
-          else{
-            
+          } else {
             const firstdata = await firstresponse.json();
-            setUserSecretData(firstdata)
-            setUserLoading(false)
-            if(firstdata.length==0){
+            setUserSecretData(firstdata);
+            setUserLoading(false);
+            if (firstdata.length == 0) {
               await getUserSecretData(
                 API_ENDPOINT + "api/hulchullapp/user/secretcodes/",
                 true,
@@ -73,12 +74,9 @@ const Bubble = () => {
               );
             }
           }
-          
-            
-          
         } catch (error) {
-          setUserLoading(false)
-          setUseError("error")
+          setUserLoading(false);
+          setUseError("error");
         }
       }
     };
@@ -150,7 +148,7 @@ const Bubble = () => {
       >
         {infomessage ? (
           <div className="box-shadow-style">
-            <Modal.Header closeButton >
+            <Modal.Header closeButton>
               <Modal.Title>Sorry!!!</Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -165,7 +163,7 @@ const Bubble = () => {
           </div>
         ) : (
           <div className="box-shadow-style">
-            <Modal.Header closeButton >
+            <Modal.Header closeButton>
               <Modal.Title>Confirmation</Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -197,58 +195,44 @@ const Bubble = () => {
         </Alert>
       ) : userSecret ? (
         <>
-          <Modal.Header closeButton>
-            <Modal.Title>Congratulations </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            {/* <div className="card mb-3" style={{maxWidth: "100%"}}>
-              <div className="row g-0">
-                <div className="col-md-4">
-                  
+          <div className="box-shadow-style">
+            <Modal.Header closeButton>
+              <Modal.Title>Congratulations </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="d-flex align-items-center">
+                <div className="flex-grow-1 ms-3">
+                  You Have Selected Your Secret as <b>{userSecret}</b>{" "}
                 </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <p className="card-text">
-                      You have selected your secret as <b>{userSecret}</b>{" "}
-                    </p>
-                  </div>
+                <div className="img-thumbnail">
+                  <img
+                    className="thumbnail-image"
+                    src={
+                      gender == "Female"
+                        ? "https://img.freepik.com/free-vector/smiling-young-girl-vector-portrait_1308-166167.jpg"
+                        : "https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg"
+                    }
+                    alt="..."
+                  />
                 </div>
               </div>
-            </div> */}
-
-            <div className="d-flex align-items-center">
-              
-              <div className="flex-grow-1 ms-3">
-                You Have Selected Your Secret as <b>{userSecret}</b>{" "}
-                
-              </div>
-              <div className="img-thumbnail">
-                <img className="thumbnail-image"
-                  src={
-                    gender == "Female"
-                      ? "https://img.freepik.com/free-vector/smiling-young-girl-vector-portrait_1308-166167.jpg"
-                      : "https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg"
-                  }
-                  alt="..."
-                />
-              </div>
-            </div>
-          </Modal.Body>
+            </Modal.Body>
+          </div>
         </>
       ) : usersecretdata && usersecretdata.length > 0 ? (
-        <>
+        <div className="box-shadow-style">
           <Modal.Header closeButton>
             <Modal.Title>Already selected</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-          <div className="d-flex align-items-center">
-              
+            <div className="d-flex align-items-center">
               <div className="flex-grow-1 ms-3">
-              You have already selected your secret person as{" "}
-              <b>{usersecretdata[0].associate_name}</b>
+                You have already selected your secret person as{" "}
+                <b>{usersecretdata[0].associate_name}</b>
               </div>
               <div className="img-thumbnail">
-                <img className="thumbnail-image"
+                <img
+                  className="thumbnail-image"
                   src={
                     usersecretdata[0].gender == "F"
                       ? "https://img.freepik.com/free-vector/smiling-young-girl-vector-portrait_1308-166167.jpg"
@@ -259,7 +243,7 @@ const Bubble = () => {
               </div>
             </div>
           </Modal.Body>
-        </>
+        </div>
       ) : (
         secretdata && (
           <>
@@ -268,31 +252,31 @@ const Bubble = () => {
             </Modal.Header>
             <Modal.Body>Please Select Your Favourite Number</Modal.Body>
             <div className="bubble-chart-start">
-            <ErrorBoundary message="Problem in index.render: BubbleChart">
-              <BubbleChart
-                graph={{
-                  zoom: 0.2,
-                  offsetX: 0,
-                  offsetY: 0,
-                }}
-                showLegend={false}
-                data={secretdata}
-                bubbleClickFun={(bubble) => bubbleClickFun(bubble)}
-                labelFont={{
-                  size: 20,
-                  color: "#ffffff",
-                  weight: "bold",
-                }}
-                valueFont={{
-                  // Set size to 0 or no color to hide labels
-                  size: 0,
-                  color: "transparent",
-                }}
-                bubbleStyling={({ label, value }) =>
-                  getBubbleStyle(label, value)
-                }
-              />
-            </ErrorBoundary>
+              <ErrorBoundary message="Problem in index.render: BubbleChart">
+                <BubbleChart
+                  graph={{
+                    zoom: 0.2,
+                    offsetX: 0,
+                    offsetY: 0,
+                  }}
+                  showLegend={false}
+                  data={secretdata}
+                  bubbleClickFun={(bubble) => bubbleClickFun(bubble)}
+                  labelFont={{
+                    size: 20,
+                    color: "#ffffff",
+                    weight: "bold",
+                  }}
+                  valueFont={{
+                    // Set size to 0 or no color to hide labels
+                    size: 0,
+                    color: "transparent",
+                  }}
+                  bubbleStyling={({ label, value }) =>
+                    getBubbleStyle(label, value)
+                  }
+                />
+              </ErrorBoundary>
             </div>
           </>
         )

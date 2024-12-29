@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { GET_USER_ALL_SECRETS } from "../../utils/Constants";
+import { GET_USER_ALL_SECRETS, UNABLE_TO_RETRIEVE_API_RESPONSE } from "../../utils/Constants";
 
 const useFetch = () => {
   const [data, setData] = useState(null);
@@ -29,6 +29,16 @@ const useFetch = () => {
       }
       const response = await fetch(url, options);
       if (!response.ok) {
+        if (response.status == 401) {
+          throw new Error("please Make Sure You logged In")
+        }
+        else if(response.status == 403){
+          throw new Error("You Don't Have Access to view the data")
+        }
+        else{
+          throw new Error(UNABLE_TO_RETRIEVE_API_RESPONSE);
+        }
+
         throw new Error("Network response was not ok");
       }
       let json = await response.json();
@@ -47,6 +57,7 @@ const useFetch = () => {
       setData(json);
       setIsLoading(false);
     } catch (error) {
+      console.log(error.message)
       setIsLoading(false);
       setError(error);
     } finally {

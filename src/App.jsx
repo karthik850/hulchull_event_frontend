@@ -2,6 +2,8 @@ import "./App.css";
 
 import HomePage from "./Components/Homepage";
 import Snowfall from "react-snowfall";
+import { BrowserRouter as Router} from "react-router-dom";
+import Footer from "./Components/Footer";
 
 function App() {
   // example 1
@@ -16,19 +18,21 @@ function App() {
         snowflakeCount={200}
       /> */}
       <Snowfall
-      className="snowfall-section"
-      color="white"
+        className="snowfall-section"
+        color="white"
         style={{
           position: "fixed",
           width: "100vw",
           height: "100vh",
-          zIndex:"1",
-          opacity:"0.2"
+          zIndex: "1",
+          opacity: "0.2",
         }}
-        
         snowflakeCount={50}
       />
-      <HomePage />
+      <Router>
+        <HomePage />
+      </Router>
+      <Footer />
     </>
   );
 }
