@@ -1,0 +1,41 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  /* Rocket Animation */
+  .rocket-container {
+    position: absolute;
+    bottom: -100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .rocket-container.rocket-launch {
+    animation: moveUp 3s ease-in-out forwards;
+    opacity: 1;
+  }
+  
+  .rocket {
+    width: 80px;
+    height: auto;
+  }
+  
+  @keyframes moveUp {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-120vh);
+    }
+  }
+  

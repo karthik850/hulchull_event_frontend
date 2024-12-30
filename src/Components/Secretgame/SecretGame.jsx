@@ -3,26 +3,28 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Bubble from "./Bubble/Bubble";
 import { useEffect, useState } from "react";
-import LoginModel from "../LoginModel";
+// import LoginModel from "../LoginModel";
+import { Alert } from "react-bootstrap";
+import { Link } from "react-router-dom";
 const SecretGame = (props) => {
   const [modalShow, setModalShow] = useState(false);
-  const [token, setToken] = useState(sessionStorage.getItem("authToken"));
+  // const [token, setToken] = useState(sessionStorage.getItem("authToken"));
   const [isLogged, setIsLogged] = useState(false);
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   // const { state } = navigate();
 
   useEffect(() => {
     const sessiontoken = sessionStorage.getItem("authToken");
     if (sessiontoken) {
-      setToken(sessiontoken);
+      // setToken(sessiontoken);
       setIsLogged(true);
     } else {
-      setToken("");
+      // setToken("");
       setIsLogged(false);
       
     }
     
-  }, [isLogged, props.refresh]);
+  }, [ props.refresh]);
 
   function MyVerticallyCenteredModal(props) {
     return (
@@ -37,15 +39,15 @@ const SecretGame = (props) => {
     );
   }
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
 
-  const handleSubmit = (token, username) => {
-    setIsLogged(true);
-    setOpen(false);
-    props.setRefresh();
-  };
+  // const handleSubmit = (token, username) => {
+  //   setIsLogged(true);
+  //   setOpen(false);
+  //   props.setRefresh();
+  // };
 
   return (
     <>
@@ -62,13 +64,15 @@ const SecretGame = (props) => {
             <Card.Title className="fw-bold">Let's Play Your Secret Code game</Card.Title>
             {!isLogged && (
               <>
-               <p> Please Login </p>
-                {/*<Button onClick={() => setOpen(true)}>Login</Button> */}
+               {/* <p> Please Login </p>
                 <LoginModel
                   isOpen={open}
                   onClose={handleClose}
                   handleSubmit={handleSubmit}
-                />
+                /> */}
+                <Alert key="logininfo" variant="info">
+            Before we start Please Make Sure You logged in - <Link to="/login">Login</Link>
+          </Alert>
               </>
             )}
             {isLogged && (

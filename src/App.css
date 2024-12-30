@@ -16,7 +16,8 @@
 }
 
 #root {
-  background-image: url(https://designerapp.officeapps.live.com/designerapp/document.ashx?path=/00ff5904-e352-438d-93ba-8dd15ad503db/DallEGeneratedImages/dalle-c6cf9e01-cd33-4893-84ed-22249f4ee3e70251666851225588928800.jpg&dcHint=IndiaCentral&fileToken=fec14ee9-850f-41ff-b7f7-7caf68e717a7);
+  background-image: url(http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg);
+  /* background-image: url(https://cdn.discordapp.com/attachments/1171855379974586432/1323293727707369542/backgroundgift.jpeg?ex=6773fcd2&is=6772ab52&hm=6ab70b3ab9747fb3bf2dedaa4914f73891258deb5d2b3517ba04877e7e4a276b&); */
   object-fit: cover;
   background-repeat: no-repeat;
   background-color: #36454f;
@@ -338,7 +339,7 @@
   margin-top: -15px;
 }
 
-.navbar-custom {
+.navbar-custom,.login-form-container {
   /* position: fixed !important;
   top: 0;
   bottom: 0;
@@ -362,3 +363,6 @@
     .disabled-filter{
       cursor: not-allowed;
     }
+.bg-login{
+  background-image: url(http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg);
+}

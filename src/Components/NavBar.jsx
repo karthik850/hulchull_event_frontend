@@ -13,25 +13,16 @@ function NavBar(props) {
   const [expanded, setExpanded] = useState(false); // State to manage navbar toggle
   const navigate = useNavigate();
   const location = useLocation();
-  const [fromAdminPage,setAdminPage] = useState(false)
 
-  useEffect(() => {
+  useEffect((props) => {
     const token = sessionStorage.getItem("authToken");
     const user = sessionStorage.getItem("username");
-    if (token && user) {
+    if (token && user ) {
       setIsLogged(true);
       setUser(user);
       setIsAdmin(sessionStorage.getItem("isAdmin"))
     }
-    if (fromAdminPage) {
-      // Scroll to the element with ID 'login'
-      // const loginElement = document.getElementById('login');
-      // if (loginElement) {
-      //   loginElement.scrollIntoView({ behavior: 'smooth' });
-      // }
-      // setAdminPage(false)
-    }
-  }, [props.refresh,]);
+  }, [props.refresh]);
 
   const handleLogOut = async () => {
     sessionStorage.removeItem("authToken");
@@ -97,13 +88,14 @@ function NavBar(props) {
                 </Nav.Link>
               </>
             ) : (
-              <Nav.Link
-                onClick={() => handleScroll("login")}
-                className="fs-5"
-                id="login-nav"
-              >
-                Login
-              </Nav.Link>
+              // <Nav.Link
+              //   onClick={() => handleScroll("login")}
+              //   className="fs-5"
+              //   id="login-nav"
+              // >
+              //   Login
+              // </Nav.Link>
+              <Link to="/login" onClick={()=>setExpanded(false)} className="fs-5 nav-link">Login</Link>
             )}
           </Nav>
         </Navbar.Collapse>
