@@ -1,12 +1,9 @@
-import useFetch from "./fetch";
 import Container from "react-bootstrap/Container";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import Alert from "react-bootstrap/Alert";
-import Toast from "react-bootstrap/Toast";
 import { API_ENDPOINT, LOGIN_ERROR } from "../../utils/Constants";
 import Spinner from "react-bootstrap/Spinner";
 
@@ -35,14 +32,17 @@ const LoginModel = (props) => {
       });
 
       if (!response.ok) {
-        setError(LOGIN_ERROR);
+        if(response.status=="400"){
+          setError(LOGIN_ERROR);
+        }
+        else{
+          setError("We are facing some issues please try again Later")
+        }
         setFormSubmitting(false);
         setTimeout(() => {
           setError();
         }, 3000);
-        throw new Error("Invalid credentials");
-
-        return;
+        // throw new Error("Invalid credentials");
       }
 
       const data = await response.json();
@@ -62,7 +62,7 @@ const LoginModel = (props) => {
         // Optionally, redirect to a protected route
       }
     } catch (error) {
-      setError("We are facing Some issue please try again later")
+      // setError("We are facing Some issue please try again later")
       setFormSubmitting(false);
     }
   };

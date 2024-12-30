@@ -60,7 +60,6 @@ function NavBar(props) {
     
     const isAdminPage = location.pathname === '/admin';
     if(isAdminPage){
-      console.log("in login page")
       // setAdminPage(true)
       navigate('/#login');
     }

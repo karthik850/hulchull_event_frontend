@@ -67,17 +67,21 @@ const AdminPage = () => {
   }, []);
   return (
     <div className="container-fluid main-section">
-        <br />
-      {secretDataLoading && <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>}
-      {secretError && 
-      <Alert key="admin-error" variant="danger">
-      <p>Error: {secretError.message}</p>
-    </Alert>}
+      <br />
+      {secretDataLoading && (
+        <Alert key="admin-error" variant="danger">
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </Alert>
+      )}
+      {secretError && (
+        <Alert key="admin-error" variant="danger">
+          <p>Error: {secretError.message}</p>
+        </Alert>
+      )}
       {adminSecretData && (
         <div>
-          
           <Alert
             className="imp-person-header text-center fw-bold d-flex align-items-center p-0 justify-content-center fs-6"
             key="dark"
@@ -85,17 +89,16 @@ const AdminPage = () => {
           >
             All User's Data
           </Alert>
-          <Table striped responsive="sm" size="sm" bordered >
+          <Table striped responsive="lg" size="lg" bordered className="table-dark">
             <thead>
-            <tr>
-                <th>ID</th>
+              <tr>
+                <th>S.No</th>
                 <th>Fav No</th>
                 <th>Associate Name</th>
                 <th>User Name</th>
-                <th>Is Opened</th>
+                <th>Is-Opened</th>
                 <th>Gender</th>
                 <th>Opened On</th>
-                
               </tr>
               <tr>
                 <th>
@@ -158,8 +161,8 @@ const AdminPage = () => {
                     }
                   >
                     <option value="">Filter by Gender</option>
-                    <option value="m">Male</option>
-                    <option value="f">Female</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
                   </Form.Select>
                 </th>
                 <th>
@@ -173,9 +176,7 @@ const AdminPage = () => {
                     className="disabled-filter"
                   /> */}
                 </th>
-                
               </tr>
-              
             </thead>
             <tbody>
               {filteredData.length > 0 ? (
@@ -186,9 +187,8 @@ const AdminPage = () => {
                     <td>{item.associate_name}</td>
                     <td>{item.user_name || "N/A"}</td>
                     <td>{item.is_opened ? "Yes" : "No"}</td>
-                    <td>{item.gender}</td>
-                    <td>{item.opened_on || "N/A"}</td>
-                    
+                    <td>{item.gender?item.gender=="F"?"Female":"Male":"N/A"}</td>
+                    <td>{item.opened_on ? item.opened_on.substring(0,16): "N/A"}</td>
                   </tr>
                 ))
               ) : (
