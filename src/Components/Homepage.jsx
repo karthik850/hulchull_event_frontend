@@ -6,6 +6,8 @@ import { useState } from "react";
 import Alert from "react-bootstrap/Alert";
 import { Routes, Route } from "react-router-dom";
 import AdminPage from "./AdminPage";
+import TeamsInfo from "./Teams/TeamsInfo";
+import EventsInfo from "./Teams/EventsInfo";
 
 const HomePage = () => {
   const [refresh, setRefresh] = useState(false);
@@ -38,6 +40,8 @@ const HomePage = () => {
           }
         />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/teamsinfo" element={<TeamsInfo />} />
+        <Route path="/eventsinfo" element={<EventsInfo />} />
       </Routes>
     </>
   );

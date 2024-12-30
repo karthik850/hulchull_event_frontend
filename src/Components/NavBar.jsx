@@ -59,9 +59,12 @@ function NavBar(props) {
   const handleScroll = (id) => {
     
     const isAdminPage = location.pathname === '/admin';
-    if(isAdminPage){
+    const isEventPage = location.pathname === '/eventinfo';
+    const isTeamsPage = location.pathname === '/teaminfo';
+    if(isAdminPage || isEventPage || isTeamsPage){
       // setAdminPage(true)
-      navigate('/#login');
+      console.log("twtery")
+      navigate('/');
     }
     const target = document.getElementById(id);
     if (target) {
@@ -88,6 +91,8 @@ function NavBar(props) {
         <Nav className="me-auto">
           </Nav>
           <Nav>
+          <Link to="/eventsinfo" onClick={()=>setExpanded(false)} className="fs-5 nav-link">Events</Link>
+          <Link to="/teamsinfo" onClick={()=>setExpanded(false)} className="fs-5 nav-link">Teams</Link>
             {islogged ? (
               <>
                 <Nav.Link href="#profile" className="fs-5">{user}</Nav.Link>
@@ -105,6 +110,7 @@ function NavBar(props) {
                 Login
               </Nav.Link>
             )}
+            
           </Nav>
         </Navbar.Collapse>
       </Container>
