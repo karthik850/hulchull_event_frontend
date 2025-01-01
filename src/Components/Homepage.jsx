@@ -6,7 +6,7 @@ import { useState } from "react";
 import Alert from "react-bootstrap/Alert";
 import { Routes, Route } from "react-router-dom";
 import AdminPage from "./AdminPage";
-import LoginPage from "./Secretgame/LoginPage";
+import LoginPage from "./LoginPage";
 import TeamsInfo from "./Teams/TeamsInfo";
 import EventsInfo from "./Teams/EventsInfo";
 
@@ -41,7 +41,8 @@ const HomePage = () => {
           }
         />
         <Route path="/admin" element={<AdminPage />} />
-        <Route path="/login" element={<LoginPage setRefresh={() => setRefresh(!refresh)}/>} />
+        <Route path="/login" element={<LoginPage setRefresh={() => setRefresh(!refresh)}/>} createUser={false}/>
+        <Route path="/createuser" element={<LoginPage setRefresh={() => setRefresh(!refresh)} createUser={true}/>} />
         <Route path="/eventsinfo" element={<EventsInfo />} />
         <Route path="/teamsinfo" element={<TeamsInfo />} />
       </Routes>

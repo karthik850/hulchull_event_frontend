@@ -66,7 +66,7 @@ const AdminPage = () => {
     );
   }, []);
   return (
-    <div className="container-fluid main-section">
+    <div className="container-fluid vh-100 main-section overflow-auto">
       <br />
       {secretDataLoading && (
         <Alert key="admin-error" variant="danger">

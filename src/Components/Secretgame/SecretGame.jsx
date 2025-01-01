@@ -72,6 +72,8 @@ const SecretGame = (props) => {
                 /> */}
                 <Alert key="logininfo" variant="info">
             Before we start Please Make Sure You logged in - <Link to="/login">Login</Link>
+            <br/>
+            If you are new please <Link to="/createuser">signup</Link> here
           </Alert>
               </>
             )}

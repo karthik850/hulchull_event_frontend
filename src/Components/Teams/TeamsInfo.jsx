@@ -49,7 +49,7 @@ const TeamsInfo = () => {
         <Alert
           className="imp-person-header text-center fw-bold d-flex align-items-center p-0 justify-content-center fs-6"
           key="dark"
-          variant="secondary"
+          variant="info"
         >
           Team Details
         </Alert>
@@ -57,15 +57,15 @@ const TeamsInfo = () => {
       <div className="row">
         {teamData && sortedTeams.map((team) => (
           <div className="col-md-4 mb-4" key={team.id}>
-            <div className="card h-100 shadow">
+            <div className="card h-100 shadow team-card">
             <img
                 src={team.image_url}
                 alt={team.name}
                 className="card-img-top"
                 style={{ height: '200px', objectFit: 'cover' }} // Image styling
               />
+              <div className="card-header bg-primary text-white text-center h5">{team.name}</div>
               <div className="card-body">
-                <h5 className="card-title text-center">{team.name}</h5>
                 <p className="card-text text-center">
                   <strong>Overall Points:</strong> {team.overall_points}
                 </p>

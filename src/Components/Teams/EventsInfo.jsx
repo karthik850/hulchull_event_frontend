@@ -44,7 +44,7 @@ const EventsInfo = () => {
         <Alert
           className="imp-person-header text-center fw-bold d-flex align-items-center p-0 justify-content-center fs-6"
           key="dark"
-          variant="secondary"
+          variant="info"
         >
           Event details
         </Alert>
@@ -97,20 +97,26 @@ const EventsInfo = () => {
                     <li className="list-group-item d-flex justify-content-between align-items-center">
                       <strong>2nd Place:</strong> {event.team_spot_2 || "N/A"}
                       {event.team_spot_2 && (
-                        <span className="badge bg-secondary">Runner-up</span>
+                        <span className="badge bg-info">Runner-up</span>
                       )}
                     </li>
                     <li className="list-group-item d-flex justify-content-between align-items-center">
                       <strong>3rd Place:</strong> {event.team_spot_3 || "N/A"}
                       {event.team_spot_3 && (
-                        <span className="badge bg-info">Third</span>
+                        <span className="badge bg-secondary">Third</span>
                       )}
                     </li>
-                    <li className="list-group-item">
+                    <li className="list-group-item d-flex justify-content-between align-items-center">
                       <strong>4th Place:</strong> {event.team_spot_4 || "N/A"}
+                      {event.team_spot_4 && (
+                        <span className="badge bg-secondary">Fourth</span>
+                      )}
                     </li>
-                    <li className="list-group-item">
+                    <li className="list-group-item d-flex justify-content-between align-items-center">
                       <strong>5th Place:</strong> {event.team_spot_5 || "N/A"}
+                      {event.team_spot_5 && (
+                        <span className="badge bg-secondary">Fifth</span>
+                      )}
                     </li>
                   </ul>
                 </div>

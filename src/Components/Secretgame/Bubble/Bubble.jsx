@@ -253,18 +253,25 @@ const Bubble = () => {
             <div className="bubble-chart-start">
               <ErrorBoundary message="Problem in index.render: BubbleChart">
                 <BubbleChart
+                className=""
+                  width={700}
+                  height={700
+                  }
                   graph={{
-                    zoom: 0.2,
+                    zoom: 1,
                     offsetX: 0,
                     offsetY: 0,
                   }}
+                  // weight={2}
                   showLegend={false}
                   data={secretdata}
                   bubbleClickFun={(bubble) => bubbleClickFun(bubble)}
                   labelFont={{
-                    size: 20,
-                    color: "#ffffff",
-                    weight: "bold",
+                    size: 22,
+                    color: "black",
+                    // weight: "bold",
+                    lineColor: "white" /* Set the color of the stroke */,
+                    lineWeight: 0.1,
                   }}
                   valueFont={{
                     // Set size to 0 or no color to hide labels

@@ -47,7 +47,7 @@ const useFetch = () => {
           .filter((item) => {return !item.is_opened && item.associate_name != sessionStorage.getItem("username")}) // Keep only items where `is_opened` is false
           .map((item) => ({
             label: item.fav_number.toString(),
-            value: Math.floor(Math.random() * (3 - 2 + 1)) + 2,
+            value: Math.floor(Math.random() * (20 - 10 + 1)) + 10,
             disable: item.is_opened, // disable is false because filtered items only have `is_opened` false
             color: generateRandomColor(),
           }));
