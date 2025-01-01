@@ -73,7 +73,7 @@ function NavBar(props) {
       onToggle={(isOpen) => setExpanded(isOpen)} // Sync toggle state
     >
       <Container>
-        <Link to="/" className="navbar-brand" >Home</Link>
+        <Link to="/" className="navbar-brand"  onClick={()=>setExpanded(false)}>Home</Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
@@ -97,7 +97,10 @@ function NavBar(props) {
               // >
               //   Login
               // </Nav.Link>
+              <>
               <Link to="/login" onClick={()=>setExpanded(false)} className="fs-5 nav-link">Login</Link>
+              <Link to="/createuser" onClick={()=>setExpanded(false)} className="fs-5 nav-link">Signup</Link>
+              </>
             )}
           </Nav>
         </Navbar.Collapse>

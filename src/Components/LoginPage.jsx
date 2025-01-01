@@ -23,6 +23,11 @@ const LoginPage = (props) => {
     };
 
     try {
+      if(userData.password.length<8){
+        setFormSubmitting(false);
+        setError("Make Sure your password has 8 or more character")
+        return
+      }
       let apiPath = "api/hulchullapp/login/";
       if (createUser) {
         apiPath = "api/hulchullapp/create-user/";
@@ -144,6 +149,7 @@ const LoginPage = (props) => {
                 <>{createUser ? "SignUp" : "Login"}</>
               )}
             </button>
+            {createUser?<>Do you already have an Account <a href="/login">Login</a> here</>:<>If you are new <a href="/createuser">register</a> here</>}
           </form>
 
           {/* Rocket Animation */}

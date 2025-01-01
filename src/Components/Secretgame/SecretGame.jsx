@@ -21,10 +21,8 @@ const SecretGame = (props) => {
     } else {
       // setToken("");
       setIsLogged(false);
-      
     }
-    
-  }, [ props.refresh]);
+  }, [props.refresh]);
 
   function MyVerticallyCenteredModal(props) {
     return (
@@ -61,20 +59,26 @@ const SecretGame = (props) => {
         />
         <Card.ImgOverlay className="upper-layer">
           <div>
-            <Card.Title className="fw-bold">Let's Play Your Secret Code game</Card.Title>
+            <Card.Title className="fw-bold">
+              Let's Play Your Secret Code game
+            </Card.Title>
             {!isLogged && (
               <>
-               {/* <p> Please Login </p>
+                {/* <p> Please Login </p>
                 <LoginModel
                   isOpen={open}
                   onClose={handleClose}
                   handleSubmit={handleSubmit}
                 /> */}
                 <Alert key="logininfo" variant="info">
-            Before we start Please Make Sure You logged in - <Link to="/login">Login</Link>
-            <br/>
-            If you are new please <Link to="/createuser">signup</Link> here
-          </Alert>
+                  Before we start Please Make Sure You logged in -{" "}
+                  <Link to="/login">Login</Link>
+                  <br />
+                  If you are new please <Link to="/createuser">
+                    signup
+                  </Link>{" "}
+                  here
+                </Alert>
               </>
             )}
             {isLogged && (
