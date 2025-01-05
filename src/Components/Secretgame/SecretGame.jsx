@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 // import LoginModel from "../LoginModel";
 import { Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import secretsata from "../../assets/secretsanta.jpeg"
 const SecretGame = (props) => {
   const [modalShow, setModalShow] = useState(false);
   // const [token, setToken] = useState(sessionStorage.getItem("authToken"));
@@ -53,7 +54,7 @@ const SecretGame = (props) => {
         {/* https://www.netmeds.com/images/cms/wysiwyg/blog/2020/12/1608796166_Season_big_1.jpg */}
         {/* https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMiRp56ehUts3rR_luctaPGEx7TXd1AH4CiQ&s */}
         <Card.Img
-          src="https://cdn.discordapp.com/attachments/1171855379974586432/1323281354850566225/secretsanta.jpeg?ex=6773f14c&is=67729fcc&hm=ec24ea178b51d8e705a25772e5b63c30268d007e263ba811b4de33a3229cb6ff&"
+          src={secretsata}
           alt="Card image"
           className="secret-game"
         />
@@ -70,7 +71,7 @@ const SecretGame = (props) => {
                   onClose={handleClose}
                   handleSubmit={handleSubmit}
                 /> */}
-                <Alert key="logininfo" variant="info">
+                <Alert key="logininfo" className="fs-6"variant="info">
                   Before we start Please Make Sure You logged in -{" "}
                   <Link to="/login">Login</Link>
                   <br />

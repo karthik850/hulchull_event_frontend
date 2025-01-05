@@ -1,0 +1,140 @@
+/* Container for futuristic badges */
+.futuristic-name-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Badge container */
+.futuristic-badge {
+  position: relative;
+  display: inline-block;
+  padding: 20px 60px;
+  background: linear-gradient(145deg, #0d1117, #1c1f2b);
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  clip-path: polygon(
+    5% 0%,   /* Top-left corner: Rounded */
+    95% 0%,  /* Top-right corner: Sharp */
+    100% 10%, 
+    100% 90%, 
+    90% 100%, /* Bottom-right corner: Angled */
+    10% 100%, /* Bottom-left corner: Concave cut */
+    0% 90%, 
+    0% 10%
+  );
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.6), inset 0 0 20px rgba(0, 255, 255, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.futuristic-badge:hover {
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.8), inset 0 0 30px rgba(0, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+/* Neon effect animation */
+.futuristic-badge:before,
+.futuristic-badge:after {
+  content: "";
+  position: absolute;
+  border: 2px solid rgba(0, 255, 255, 0.5);
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(
+    5% 0%, 
+    95% 0%, 
+    100% 10%, 
+    100% 90%, 
+    90% 100%, 
+    10% 100%, 
+    0% 90%, 
+    0% 10%
+  );
+  animation: pulse-neon 2s infinite;
+  pointer-events: none;
+}
+
+.futuristic-badge:before {
+  top: -3px;
+  left: -3px;
+  border-color: rgba(0, 255, 255, 0.7);
+}
+
+.futuristic-badge:after {
+  top: 3px;
+  left: 3px;
+  border-color: rgba(0, 255, 255, 0.4);
+}
+
+/* Content inside the badge */
+.futuristic-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #0efefe;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+/* Time-like logo */
+.futuristic-time-icon {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(0, 255, 255, 0.8);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+.futuristic-time-icon:before,
+.futuristic-time-icon:after {
+  content: "";
+  position: absolute;
+  background: rgba(0, 255, 255, 0.8);
+  border-radius: 50%;
+}
+
+.futuristic-time-icon:before {
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.futuristic-time-icon:after {
+  width: 2px;
+  height: 12px;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: rotate-hand 2s infinite linear;
+}
+
+/* Rotate animation for the hand */
+@keyframes rotate-hand {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+/* Neon pulse animation */
+@keyframes pulse-neon {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.9));
+  }
+  50% {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 1));
+  }
+}

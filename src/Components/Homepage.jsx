@@ -9,9 +9,12 @@ import AdminPage from "./AdminPage";
 import LoginPage from "./LoginPage";
 import TeamsInfo from "./Teams/TeamsInfo";
 import EventsInfo from "./Teams/EventsInfo";
+import Gallery from "./Gallery";
+import ImportantPersons from "./ImportantPersons";
 
 const HomePage = () => {
   const [refresh, setRefresh] = useState(false);
+  
   return (
     <>
       <NavBar setRefresh={() => setRefresh(!refresh)} refresh={refresh} />
@@ -27,14 +30,23 @@ const HomePage = () => {
                   key="dark"
                   variant="secondary"
                 >
-                  Important Persons
+                  HulChull 12.0
                 </Alert>
-                <HighLights />
-                <br />
+                {/* <HighLights /> */}
+                {/* <ImportantPersons /> */}
+                {/* <br /> */}
                 <SecretGame
                   setRefresh={() => setRefresh(!refresh)}
                   refresh={refresh}
                 />
+                <Alert
+                  className="imp-person-header text-center fw-bold d-flex align-items-center p-0 justify-content-center fs-6"
+                  key="dark"
+                  variant="secondary"
+                >
+                  Gallery
+                </Alert>
+                <Gallery />
               </div>
               
             </>

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import useFetch from "./fetch";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
@@ -40,9 +40,10 @@ const ImportantPersons = () => {
         {highlights &&
           highlights.map((impPerson, index) => (
             <div key={index} className="futuristic-badge">
-              <span className="badge-content">{impPerson.name}</span>
-              <div className="badge-overlay"></div>
-              <div className="glow-animation"></div>
+              <div className="futuristic-content">
+                <div className="futuristic-time-icon"></div>
+                <span>{impPerson.name}</span>
+              </div>
             </div>
           ))}
       </div>
