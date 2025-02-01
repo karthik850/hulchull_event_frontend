@@ -22,7 +22,7 @@ function HomePageCorousel() {
                             width="800px"
                             height="400px"
                             /> */}
-        <Image src="https://lh3.googleusercontent.com/d/1UPfZUNcifM06Uke7TnG3zLNKWaqpOdD-=w1000?authuser=1/view" text="Second slide" fluid />
+        <Image src="https://lh3.googleusercontent.com/d/1UPfZUNcifM06Uke7TnG3zLNKWaqpOdD-=w1000?authuser=1/view" className="corousal-image" text="Second slide" fluid />
           <Carousel.Caption className="gradient-style">
             {/* <h5>Hai</h5>
             <p>{"fgfggd".slice(0, 100)}</p> */}
@@ -30,7 +30,7 @@ function HomePageCorousel() {
         </Carousel.Item>
 
         <Carousel.Item>
-        <Image src="https://lh3.googleusercontent.com/d/1VFfm1x-RGVTF8UkZregqTvAGhnh8BqAU=w1000?authuser=1/view" text="Second slide" fluid />
+        <Image src="https://lh3.googleusercontent.com/d/1VFfm1x-RGVTF8UkZregqTvAGhnh8BqAU=w1000?authuser=1/view" className="corousal-image" text="Second slide" fluid />
           {/* <Carousel.Caption>
           <h3>Second slide label</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -41,7 +41,7 @@ function HomePageCorousel() {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <Image src={logo} text="Third slide" fluid />
+          <Image src="https://lh3.googleusercontent.com/d/1NgeLrtccyl8_VcM1EP3NgNXO1CpXgCZQ=w1000?authuser=1%2Fview" className="corousal-image" text="Third slide" fluid />
           {/* <Carousel.Caption>
           <h3>Third slide label</h3>
           <p>

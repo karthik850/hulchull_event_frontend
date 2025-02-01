@@ -180,9 +180,9 @@ const AdminPage = () => {
             </thead>
             <tbody>
               {filteredData.length > 0 ? (
-                filteredData.map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.id}</td>
+                filteredData.map((item,index) => (
+                  <tr key={index+1}>
+                    <td>{index+1}</td>
                     <td>{item.fav_number}</td>
                     <td>{item.associate_name}</td>
                     <td>{item.user_name || "N/A"}</td>

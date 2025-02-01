@@ -265,7 +265,7 @@
 }
 
 .important-person-profile {
-  object-fit: contain;
+  object-fit: cover;
 }
 
 /* .card{
@@ -367,6 +367,10 @@
   background-image: url(http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg);
 }
 
-.secret-game{
+/* .secret-game{
   margin-top:-15px;
+} */
+
+.corousal-image{
+  object-fit: cover !important;
 }

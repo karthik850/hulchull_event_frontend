@@ -98,8 +98,9 @@ function NavBar(props) {
               //   Login
               // </Nav.Link>
               <>
-              <Link to="/login" onClick={()=>setExpanded(false)} className="fs-5 nav-link">Login</Link>
               <Link to="/createuser" onClick={()=>setExpanded(false)} className="fs-5 nav-link">Signup</Link>
+              <Link to="/login" onClick={()=>setExpanded(false)} className="fs-5 nav-link">Login</Link>
+              
               </>
             )}
           </Nav>

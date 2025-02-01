@@ -104,6 +104,8 @@ const LoginPage = (props) => {
                 ? "Please Fill Below Details"
                 : "Please Login Using Provided Credentials"}
             </h5>
+            <h6 style={{backgroundColor:'lightblue'}}>Username should be your full name <b>Ex:</b> Karthik Reddy Emireddy</h6>
+
             {error && (
               <Alert key="loginerror" variant="danger">
                 {error =="409"?<>User already exists please try <a href="/login">login</a></>:error}

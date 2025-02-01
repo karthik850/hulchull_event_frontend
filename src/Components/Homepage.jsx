@@ -30,11 +30,11 @@ const HomePage = () => {
                   key="dark"
                   variant="secondary"
                 >
-                  HulChull 12.0
+                  Claims Leadership
                 </Alert>
-                {/* <HighLights /> */}
+                <HighLights />
                 {/* <ImportantPersons /> */}
-                {/* <br /> */}
+                <br />
                 <SecretGame
                   setRefresh={() => setRefresh(!refresh)}
                   refresh={refresh}
